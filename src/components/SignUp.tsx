@@ -46,7 +46,7 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
 
   const onSubmit = async (event : any) => {
     event.preventDefault();
-    console.log("Usao u submit");
+
     try {
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(auth, email, password as string);
