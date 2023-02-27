@@ -6,6 +6,7 @@ import { useAuthStatus } from '../hooks/useAuthStatus';
 import SignIn from './SignIn';
 import { getAuth, User } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import Avatar from '../images/avatar.jpg';
 
 function Navbar() {
 
@@ -16,7 +17,7 @@ function Navbar() {
   const [user, setUser] = useState<User | null>(null);
 
   const auth = getAuth();
-  
+
   useEffect(() => {
     console.log("Radi useeff");
     setUser(auth.currentUser);
@@ -61,6 +62,7 @@ function Navbar() {
           <li><a href="/#">Latest Sightings</a></li>
           <li><a href="/#">Favorites</a></li>
           { loggedIn && <li className="text-black"><a href="/#">{user?.displayName}</a></li> }
+          { loggedIn && <li className="text-black"><a href="/#"><img src={Avatar} alt="avatar" className='img-avatar' /></a></li> }
           { loggedIn && <li className="register-btn"><button  onClick={onLogout}>Logout</button></li> }
           { !loggedIn && <li><button id="sign-in-btn" className="login-btn" onClick={showModalClick}>Login</button></li> }
           { !loggedIn && <li className='register-btn'><button id="sign-up-btn" onClick={showModalClick}>New Account</button></li> }
@@ -70,7 +72,7 @@ function Navbar() {
     </nav>
     { showSignUpModal && signUpModal }
     { showSignInModal && signInModal }
-    
+
     </header>
   )
 }

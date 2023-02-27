@@ -8,7 +8,7 @@ export interface FormProps {
 const Form = ({ children, onSubmit } : FormProps) : JSX.Element => {
   return (
    <>
-    <form onSubmit={onSubmit} className="form-container">
+    <form onSubmit={onSubmit}>
       {children}
     </form>
    </>

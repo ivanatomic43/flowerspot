@@ -58,7 +58,7 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
           displayName: firstName
         });
       }
-    
+
       // adding user to firestore without password
       const formDataCopy = {...formData}
       delete formDataCopy.password
