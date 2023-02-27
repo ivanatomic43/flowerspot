@@ -38,6 +38,7 @@ function SignIn( {handleCloseModal} : SignInProps ) : JSX.Element {
   
       if(userCredential.user){
         navigate("/");
+        handleCloseModal();
       }
     } catch(error) {
       console.log("Error logging in");

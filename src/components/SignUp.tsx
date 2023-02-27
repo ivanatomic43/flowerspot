@@ -67,6 +67,7 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
       navigate('/');
+      handleCloseModal();
 
     } catch(error) {
       console.log("Greska");
