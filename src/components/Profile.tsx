@@ -4,7 +4,7 @@ interface ProfileProps {
   onClose: () => void;
 }
 
-function Profile({onClose} : ProfileProps) {
+function Profile({onClose} : ProfileProps) : JSX.Element {
 
   const profileContent = (
     <div>

@@ -12,7 +12,7 @@ import { useAuthStatus } from '../hooks/useAuthStatus';
 import Avatar from '../images/avatar.jpg';
 
 
-function Navbar() {
+function Navbar() : JSX.Element {
 
   const navigate = useNavigate();
 

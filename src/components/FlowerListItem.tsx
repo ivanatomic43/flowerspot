@@ -1,4 +1,4 @@
-function FlowerListItem() {
+function FlowerListItem() : JSX.Element {
   return (
     <div className='flower-list-item'>
       <div className='flower-list-item-content'>

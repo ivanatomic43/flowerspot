@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 
 import './css/style.css'
 
-function App() {
+function App() : JSX.Element {
   return (
    <>
     <Router>

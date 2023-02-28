@@ -8,7 +8,7 @@ export interface ModalProps {
   hasForm: boolean;
 }
 
-function Modal({children, onClose, modalTitle, onSubmit, hasForm} : ModalProps) {
+function Modal({children, onClose, modalTitle, onSubmit, hasForm} : ModalProps) : JSX.Element {
 
   const content = (
     <div className="modal">

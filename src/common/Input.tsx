@@ -7,7 +7,7 @@ export interface InputProps {
   onChange: React.ChangeEventHandler;
 }
 
-function Input({labelName, inputType, id, name, value, onChange} : InputProps) {
+function Input({labelName, inputType, id, name, value, onChange} : InputProps) : JSX.Element {
   return (
     <div className='m-2 bg-gray-200 border-2 rounded border-gray-300'>
       <div className='w-full m-auto'>

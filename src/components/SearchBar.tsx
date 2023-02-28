@@ -1,6 +1,6 @@
 import {AiOutlineSearch} from 'react-icons/ai'
 
-function SearchBar() {
+function SearchBar() : JSX.Element {
   return (
     <div className='search-container'>
       <div className='input-div'>

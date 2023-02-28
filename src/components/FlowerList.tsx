@@ -1,6 +1,6 @@
 import FlowerListItem from "./FlowerListItem"
 
-function FlowerList() {
+function FlowerList() : JSX.Element {
   return (
     <div className='container'>
        <div className='flower-container'>

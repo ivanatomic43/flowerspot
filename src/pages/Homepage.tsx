@@ -1,7 +1,7 @@
 import FlowerList from "../components/FlowerList"
 import SearchBar from "../components/SearchBar"
 
-export default function Homepage() {
+export default function Homepage() : JSX.Element {
   return (
     <>
     <div className="homepage">

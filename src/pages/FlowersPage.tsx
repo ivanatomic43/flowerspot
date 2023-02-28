@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FlowersPage() {
+function FlowersPage() : JSX.Element {
   return (
     <div>
       Flowers
