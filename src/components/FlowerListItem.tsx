@@ -1,5 +1,3 @@
-import React from 'react'
-
 function FlowerListItem() {
   return (
     <div className='flower-list-item'>

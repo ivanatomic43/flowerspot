@@ -1,13 +1,10 @@
-import React from 'react'
 import ReactDOM from 'react-dom'
-import {ReactNode} from 'react';
-
-
+import { ReactNode } from 'react';
 export interface ModalProps {
   children?: ReactNode;
   onClose: () => void;
   modalTitle?: string;
-  onSubmit: React.FormEventHandler;
+  onSubmit?: React.FormEventHandler;
   hasForm: boolean;
 }
 

@@ -1,10 +1,11 @@
-import React from 'react'
-import './css/style.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Routes } from 'react-router'
+
 import Homepage from './pages/Homepage'
 import FlowersPage from './pages/FlowersPage'
 import Navbar from './components/Navbar'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Routes } from 'react-router'
+
+import './css/style.css'
 
 function App() {
   return (

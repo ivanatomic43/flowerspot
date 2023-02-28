@@ -1,13 +1,13 @@
-import { setDoc, doc, serverTimestamp, FieldValue } from "firebase/firestore";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+
+import { setDoc, doc, serverTimestamp, FieldValue } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { db }  from '../firebase.config';
+
 import Modal from "../common/Modal";
 import Input from "../common/Input";
 import Button from "../common/Button";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
-import { db }  from '../firebase.config';
-import {Link, useNavigate} from 'react-router-dom'
-import Form from "../common/Form";
-
 export interface SignUpProps {
   handleCloseModal: () => void;
 }
