@@ -8,6 +8,7 @@ import { db }  from '../firebase.config';
 import Modal from "../common/Modal";
 import Input from "../common/Input";
 import Button from "../common/Button";
+import { validateField } from '../utils/helpers/formValidation';
 export interface SignUpProps {
   handleCloseModal: () => void;
 }
@@ -34,13 +35,31 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
     password: ''
   })
 
+  const [formValidation, setFormValidation] = useState({
+    firstNameValid: false,
+    lastNameValid: false,
+    dateOfBirthValid: false,
+    emailValid: false,
+    passwordValid: false,
+    formErrors: { firstName: '', lastName: '', dateOfBirth: '', email: '', password: ''},
+    formValid: false
+  });
+
   const { firstName, lastName, dateOfBirth, email, password} = formData;
 
   const handleOnChange = (event: any) => {
-    console.log(event.target.value);
     setFormData((prevState) => ({
       ...prevState,
       [event.target.id]: event.target.value
+    }))
+
+    setFormValidation((prevState) => ({
+      ...prevState,
+      firstNameValid: validateField(event.target.id, event.target.value, formValidation).firstNameValid,
+      lastNameValid: validateField(event.target.id, event.target.value, formValidation).lastNameValid,
+      dateOfBirthValid: validateField(event.target.id, event.target.value, formValidation).dateOfBirthValid,
+      emailValid: validateField(event.target.id, event.target.value, formValidation).emailValid,
+      passwordValid: validateField(event.target.id, event.target.value, formValidation).passwordValid,
     }))
   }
 
@@ -79,12 +98,22 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
       <Modal hasForm={true} modalTitle="Create an Account" onClose={handleCloseModal} onSubmit={onSubmit}>
         <div className="grid grid-rows-4 grid-flow-row p-2">
           <div className="flex justify-between">
-            <Input labelName="First Name" inputType="text" id="firstName" name="firstName" value={firstName} onChange={handleOnChange} />
-            <Input labelName="Last Name" inputType="text" id="lastName" name="lastName" value={lastName} onChange={handleOnChange} />
+            <div>
+              <Input labelName="First Name" inputType="text" id="firstName" name="firstName" value={firstName} onChange={handleOnChange} validationError={formValidation.formErrors.firstName} />
+            </div>
+            <div>
+              <Input labelName="Last Name" inputType="text" id="lastName" name="lastName" value={lastName} onChange={handleOnChange} validationError={formValidation.formErrors.lastName} />
+            </div>
           </div>
-          <Input labelName="Date of Birth" inputType="text" id="dateOfBirth" name="dateOfBirth" value={dateOfBirth} onChange={handleOnChange} />
-          <Input labelName="Email address" inputType="text" id="email" name="email" value={email} onChange={handleOnChange} />
-          <Input labelName="Password" inputType="password" id="password" name="password" value={password as string} onChange={handleOnChange} />
+          <div>
+            <Input labelName="Date of Birth" inputType="text" id="dateOfBirth" name="dateOfBirth" value={dateOfBirth} onChange={handleOnChange}  validationError={formValidation.formErrors.dateOfBirth} />
+          </div>
+          <div>
+            <Input labelName="Email address" inputType="text" id="email" name="email" value={email} onChange={handleOnChange} validationError={formValidation.formErrors.email} />
+          </div>
+          <div>
+            <Input labelName="Password" inputType="password" id="password" name="password" value={password as string} onChange={handleOnChange} validationError={formValidation.formErrors.password} />
+          </div>
           <div className="m-2">
             <Button className="p-3 w-full" full pink primary rounded>Create an Account</Button>
           </div>
