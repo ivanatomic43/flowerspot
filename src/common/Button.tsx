@@ -8,7 +8,8 @@ export interface ButtonProps{
   rounded?: any;
   pink?: any;
   full?: any;
-  className? : string
+  className? : string;
+  onClick? : () => void;
 }
 
 
@@ -19,6 +20,7 @@ const Button = ({
   rounded,
   pink,
   full,
+  onClick,
   ...rest
 }: ButtonProps) : JSX.Element => {
 
@@ -29,7 +31,7 @@ const Button = ({
   })
 
   return (
-    <button {...rest} className={classes}>{children}</button>
+    <button {...rest} className={classes} onClick={onClick}>{children}</button>
   )
 }
 

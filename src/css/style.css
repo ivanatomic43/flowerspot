@@ -244,8 +244,6 @@
 }
 
 .img-avatar {
-  max-width: 28px;
-  max-height: 28px;
   border: 0.1rem solid rgba(228,152,141,1);
   border-radius: 5px;
 }

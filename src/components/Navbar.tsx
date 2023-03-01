@@ -27,11 +27,6 @@ function Navbar() : JSX.Element {
     setUser(auth.currentUser);
   });
 
-  const onLogout = () => {
-    auth.signOut();
-    navigate('/');
-  }
-
   //Modal
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
@@ -77,8 +72,8 @@ function Navbar() : JSX.Element {
           <li><a href="/#">Latest Sightings</a></li>
           <li><a href="/#">Favorites</a></li>
           { loggedIn && <li className="text-black"><a href="/#">{user?.displayName}</a></li> }
-          { loggedIn && <li className="text-black"><button onClick={showProfileModalClick}><img src={Avatar} alt="avatar" className='img-avatar' /></button></li> }
-          { loggedIn && <li className="register-btn"><button  onClick={onLogout}>Logout</button></li> }
+          { loggedIn && <li className="text-black"><button onClick={showProfileModalClick}><img src={Avatar} alt="avatar" className='img-avatar w-7 h-7' /></button></li> }
+         
           { !loggedIn && <li><button id="sign-in-btn" className="login-btn" onClick={showModalClick}>Login</button></li> }
           { !loggedIn && <li className='register-btn'><button id="sign-up-btn" onClick={showModalClick}>New Account</button></li> }
         </ul>
@@ -87,7 +82,7 @@ function Navbar() : JSX.Element {
     </nav>
     { showSignUpModal && signUpModal }
     { showSignInModal && signInModal }
-    { showProfileModal && <Profile onClose={handleProfileClose} />}
+    { showProfileModal && <Profile onClose={handleProfileClose} currentUser={user} />}
 
     </header>
   )
