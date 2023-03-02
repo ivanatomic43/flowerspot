@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState, useId } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 import { setDoc, doc, serverTimestamp, FieldValue } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { db }  from '../firebase.config';
 
+import { validateField } from '../utils/helpers/formValidation';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../store';
+
 import Modal from "../common/Modal";
 import Input from "../common/Input";
 import Button from "../common/Button";
-import { validateField } from '../utils/helpers/formValidation';
+
 export interface SignUpProps {
   handleCloseModal: () => void;
 }
@@ -25,7 +29,9 @@ export interface FormProps {
 function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
 
   const [showPassword, setShowPassword] = useState(false);
+  
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState<FormProps>({
     firstName: '',
@@ -85,6 +91,16 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
 
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
+      const newUser = {
+        id: user.uid,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        dateOfBirth: formData.dateOfBirth,
+        email: formData.email
+      }
+
+      dispatch(addUser(newUser));
+  
       navigate('/');
       handleCloseModal();
 
