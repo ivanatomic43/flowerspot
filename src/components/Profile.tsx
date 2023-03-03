@@ -1,11 +1,15 @@
-import { getAuth } from 'firebase/auth';
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
+import { doc, DocumentData, getDoc } from 'firebase/firestore'
+import { db } from '../firebase.config';
 
 import Modal from '../common/Modal'
 import TextField from '../common/TextField';
 import Button from '../common/Button';
 
 import avatar from '../images/avatar.jpg'
+import { useEffect } from 'react';
 
 interface ProfileProps {
   onClose: () => void;
@@ -14,10 +18,28 @@ interface ProfileProps {
 
 function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
 
-  const navigate = useNavigate();
+  const [userData, setUserData] = useState<DocumentData | undefined>({
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    email: ''
+  })
+
   const auth = getAuth();
 
-  console.log(currentUser);
+  useEffect(() => {
+    const getUserData = async () => {
+      const userData = await getDoc(doc(db, 'users', currentUser.uid));
+
+      if (userData.exists()){
+        setUserData(userData.data());
+      } else {
+        console.log("Error");
+      }
+    }
+
+    getUserData();
+  }, []);
 
   const onLogout = () => {
     auth.signOut();
@@ -33,17 +55,17 @@ function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
             <p className='text-xs text-slate-500'>47 sightings</p>
           </div>
         </div>
-        <div className=''>
-          <TextField/>
+        <div>
+          <TextField labelName='First Name' fieldData={userData?.firstName}/>
         </div>
         <div>
-          <TextField />
+          <TextField labelName='Last Name' fieldData={userData?.lastName}/>
         </div>
         <div>
-          <TextField />
+          <TextField labelName='Date of Birth' fieldData={userData?.dateOfBirth} />
         </div>
         <div>
-          <TextField />
+          <TextField labelName='E-mail address' fieldData={userData?.email}/>
         </div>
         <div className="m-auto">
           <Button className="mt-3 pt-2 pl-5 pb-2 pr-5 text-xs" pink primary rounded onClick={onLogout}>Logout</Button>
