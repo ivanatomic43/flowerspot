@@ -25,7 +25,8 @@ function SignIn( {handleCloseModal} : SignInProps ) : JSX.Element {
     emailValid: false,
     passwordValid: false,
     formValid: false,
-    formErrors: { email: '', password: ''}
+    formErrors: { email: '', password: ''},
+    isSignUpForm: false
   })
 
   const {email, password} = formData;
@@ -63,8 +64,6 @@ function SignIn( {handleCloseModal} : SignInProps ) : JSX.Element {
       } catch(error) {
         console.log("Error logging in");
       }
-   
-   
   }
 
   return (

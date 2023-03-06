@@ -48,7 +48,8 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
     emailValid: false,
     passwordValid: false,
     formErrors: { firstName: '', lastName: '', dateOfBirth: '', email: '', password: ''},
-    formValid: false
+    formValid: false,
+    isSignUpForm: true
   });
 
   const { firstName, lastName, dateOfBirth, email, password} = formData;
@@ -66,6 +67,7 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
       dateOfBirthValid: validateField(event.target.id, event.target.value, formValidation).dateOfBirthValid,
       emailValid: validateField(event.target.id, event.target.value, formValidation).emailValid,
       passwordValid: validateField(event.target.id, event.target.value, formValidation).passwordValid,
+      formValid: validateField(event.target.id, event.target.value, formValidation).formValid
     }))
   }
 
@@ -131,7 +133,7 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
             <Input labelName="Password" inputType="password" id="password" name="password" value={password as string} onChange={handleOnChange} validationError={formValidation.formErrors.password} />
           </div>
           <div className="m-2">
-            <Button className="p-3 w-full" full pink primary rounded>Create an Account</Button>
+            <Button className="p-3 w-full" full pink primary rounded disabled={!formValidation.formValid}>Create an Account</Button>
           </div>
         </div>
       </Modal>

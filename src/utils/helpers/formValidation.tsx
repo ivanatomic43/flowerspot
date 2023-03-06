@@ -1,9 +1,11 @@
 export function validateField(fieldName: string, fieldValue: string, formValidation: any) {
 
   let fieldValidationErrors = formValidation.formErrors
+  let isSignUpForm = formValidation.isSignUpForm
+
   let firstNameValid = formValidation.firstNameValid
   let lastNameValid = formValidation.lastNameValid
-  let dateOfBirthValid = formValidation.dateOfBirth
+  let dateOfBirthValid = formValidation.dateOfBirthValid
   let emailValid = formValidation.emailValid
   let passwordValid = formValidation.passwordValid
 
@@ -33,9 +35,16 @@ export function validateField(fieldName: string, fieldValue: string, formValidat
   }
 
   let formValid = false;
-
-  if(emailValid && passwordValid){
-    formValid = true;
+  if(isSignUpForm){
+    if((firstNameValid && lastNameValid) && dateOfBirthValid){
+      if((emailValid && passwordValid)) {
+        formValid = true;
+      }
+    }
+  } else {
+    if(emailValid && passwordValid){
+      formValid = true;
+    }
   }
 
   return { firstNameValid, lastNameValid, dateOfBirthValid, emailValid, passwordValid, fieldValidationErrors, formValid}
