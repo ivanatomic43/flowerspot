@@ -10,6 +10,7 @@ export interface ButtonProps{
   full?: any;
   className? : string;
   onClick? : () => void;
+  disabled?: boolean;
 }
 
 
@@ -21,17 +22,19 @@ const Button = ({
   pink,
   full,
   onClick,
+  disabled,
   ...rest
 }: ButtonProps) : JSX.Element => {
 
   const classes = className(rest.className, {
     'text-white': primary,
-    'rounded bg-[#ECBCB3]': rounded && pink,
-    'w-full': full
+    'rounded bg-[#ecbcb3]': rounded && disabled,
+    'rounded bg-[#e4988d]': rounded && pink,
+    'w-full': full,
   })
 
   return (
-    <button {...rest} className={classes} onClick={onClick}>{children}</button>
+    <button {...rest} className={classes} onClick={onClick} disabled={disabled}>{children}</button>
   )
 }
 

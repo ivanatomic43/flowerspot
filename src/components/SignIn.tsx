@@ -41,24 +41,30 @@ function SignIn( {handleCloseModal} : SignInProps ) : JSX.Element {
       ...prevState,
       emailValid: validateField(event.target.id, event.target.value, formValidation).emailValid,
       passwordValid: validateField(event.target.id, event.target.value, formValidation).passwordValid,
-      formErrors: validateField(event.target.id, event.target.value, formValidation).fieldValidationErrors
+      formErrors: validateField(event.target.id, event.target.value, formValidation).fieldValidationErrors,
+      formValid: validateField(event.target.id, event.target.value, formValidation).formValid
     }))
+
+    console.log(formValidation.formValid);
   }
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
 
-    try {
-      const auth = getAuth();
-      const userCredential = await signInWithEmailAndPassword(auth, email, password)
-
-      if(userCredential.user){
-        navigate("/");
-        handleCloseModal();
+      console.log(formValidation.formValid);
+      try {
+        const auth = getAuth();
+        const userCredential = await signInWithEmailAndPassword(auth, email, password)
+  
+        if(userCredential.user){
+          navigate("/");
+          handleCloseModal();
+        }
+      } catch(error) {
+        console.log("Error logging in");
       }
-    } catch(error) {
-      console.log("Error logging in");
-    }
+   
+   
   }
 
   return (
@@ -72,7 +78,7 @@ function SignIn( {handleCloseModal} : SignInProps ) : JSX.Element {
           <Input labelName='Password' inputType='password' id="password" name="password" value={password} onChange={handleOnChange} validationError={formValidation.formErrors.password} />
         </div>
         <div className='p-3 w-full m-auto'>
-          <Button className='p-3'full pink primary rounded>Login to your Account</Button>
+          <Button className='p-3' full pink primary rounded disabled={!formValidation.formValid}>Login to your Account</Button>
         </div>
       </div>
     </Modal>

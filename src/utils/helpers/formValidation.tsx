@@ -32,5 +32,11 @@ export function validateField(fieldName: string, fieldValue: string, formValidat
       break;
   }
 
-  return { firstNameValid, lastNameValid, dateOfBirthValid, emailValid, passwordValid, fieldValidationErrors}
+  let formValid = false;
+
+  if(emailValid && passwordValid){
+    formValid = true;
+  }
+
+  return { firstNameValid, lastNameValid, dateOfBirthValid, emailValid, passwordValid, fieldValidationErrors, formValid}
 }
