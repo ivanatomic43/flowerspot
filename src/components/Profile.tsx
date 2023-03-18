@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { doc, DocumentData, getDoc } from 'firebase/firestore'
 import { db } from '../firebase.config';
@@ -41,7 +40,7 @@ function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
     getUserData();
   }, []);
 
-  const onLogout = () => {
+  const onLogoutClick = () => {
     auth.signOut();
     onClose();
   }
@@ -68,7 +67,7 @@ function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
           <TextField labelName='E-mail address' fieldData={userData?.email}/>
         </div>
         <div className="m-auto">
-          <Button className="mt-3 pt-2 pl-5 pb-2 pr-5 text-xs" pink primary rounded onClick={onLogout}>Logout</Button>
+          <Button className="mt-3 pt-2 pl-5 pb-2 pr-5 text-xs" pink primary rounded onClick={onLogoutClick}>Logout</Button>
         </div>
     </div>
   );

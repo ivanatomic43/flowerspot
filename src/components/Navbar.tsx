@@ -23,7 +23,6 @@ function Navbar() : JSX.Element {
   const auth = getAuth();
 
   useEffect(() => {
-    console.log("Radi useeff");
     setUser(auth.currentUser);
   });
 
@@ -58,6 +57,12 @@ function Navbar() : JSX.Element {
     setShowProfileModal(false);
   }
 
+  const navbarPublic = <><li><button id="sign-in-btn" className="login-btn" onClick={showModalClick}>Login</button></li>
+                      <li className='register-btn'><button id="sign-up-btn" onClick={showModalClick}>New Account</button></li></>
+  
+  const navbarLoggedUser = <><li className="text-black"><a href="/#">{user?.displayName}</a></li>
+                            <li className="text-black"><button onClick={showProfileModalClick}><img src={Avatar} alt="avatar" className='img-avatar w-7 h-7' /></button></li></>
+
   return (
     <header>
       <nav >
@@ -71,11 +76,7 @@ function Navbar() : JSX.Element {
           <li><Link to="/flowers">Flowers</Link></li>
           <li><a href="/#">Latest Sightings</a></li>
           <li><a href="/#">Favorites</a></li>
-          { loggedIn && <li className="text-black"><a href="/#">{user?.displayName}</a></li> }
-          { loggedIn && <li className="text-black"><button onClick={showProfileModalClick}><img src={Avatar} alt="avatar" className='img-avatar w-7 h-7' /></button></li> }
-         
-          { !loggedIn && <li><button id="sign-in-btn" className="login-btn" onClick={showModalClick}>Login</button></li> }
-          { !loggedIn && <li className='register-btn'><button id="sign-up-btn" onClick={showModalClick}>New Account</button></li> }
+          { loggedIn ? navbarLoggedUser : navbarPublic }
         </ul>
       </div>
       </div>
