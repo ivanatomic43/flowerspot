@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from "react"
 import {getAuth, onAuthStateChanged } from 'firebase/auth';
-import { app } from '../firebase.config';
 
 const useAuthStatus = () => {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true)
+  const [ currentUser, setCurrentUser] = useState(null)
   const isMounted = useRef(true);
 
   useEffect(() => {
@@ -14,8 +14,10 @@ const useAuthStatus = () => {
       onAuthStateChanged(auth, (user) => {
         if(user) {
           setLoggedIn(true)
+          setCurrentUser(auth.currentUser)
         } else {
           setLoggedIn(false);
+          setCurrentUser(null)
         }
         setCheckingStatus(false);
       })
@@ -26,7 +28,7 @@ const useAuthStatus = () => {
     }
   }, [isMounted]);
 
-  return {loggedIn, checkingStatus}
+  return {loggedIn, checkingStatus, currentUser}
 }
 
 

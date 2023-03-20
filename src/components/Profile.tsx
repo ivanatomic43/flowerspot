@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { getAuth } from 'firebase/auth';
 import { doc, DocumentData, getDoc } from 'firebase/firestore'
 import { db } from '../firebase.config';
@@ -8,7 +9,6 @@ import TextField from '../common/TextField';
 import Button from '../common/Button';
 
 import avatar from '../images/avatar.jpg'
-import { useEffect } from 'react';
 
 interface ProfileProps {
   onClose: () => void;
@@ -25,6 +25,7 @@ function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
   })
 
   const auth = getAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getUserData = async () => {
@@ -42,6 +43,7 @@ function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
 
   const onLogoutClick = () => {
     auth.signOut();
+    navigate("/");
     onClose();
   }
 
@@ -53,7 +55,7 @@ function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
             <h2 className='text-[#334144]'>{currentUser.displayName}</h2>
             <p className='text-xs text-slate-500'>47 sightings</p>
           </div>
-        </div>
+      </div>
         <div>
           <TextField labelName='First Name' fieldData={userData?.firstName}/>
         </div>

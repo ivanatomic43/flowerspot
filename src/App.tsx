@@ -3,6 +3,7 @@ import { Routes } from 'react-router'
 
 import Homepage from './pages/Homepage'
 import FlowersPage from './pages/FlowersPage'
+import ProfilePage from './pages/ProfilePage'
 import Navbar from './components/Navbar'
 
 import './css/style.css'
@@ -15,6 +16,7 @@ function App() : JSX.Element {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/flowers' element={<FlowersPage />} />
+        <Route path='/profile' element={<ProfilePage />} />
       </Routes>
     </Router>
    </>

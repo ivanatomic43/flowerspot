@@ -18,6 +18,7 @@
   justify-content: space-between;
   font-family:'Montserrat', sans-serif;
   max-width: 1400px;
+  overflow: auto;
   margin: auto;
 }
 

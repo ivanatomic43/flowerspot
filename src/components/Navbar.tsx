@@ -14,10 +14,8 @@ import Avatar from '../images/avatar.jpg';
 
 function Navbar() : JSX.Element {
 
-  const navigate = useNavigate();
-
   //User
-  const { loggedIn, checkingStatus } = useAuthStatus();
+  const { loggedIn } = useAuthStatus();
   const [user, setUser] = useState<User | null>(null);
 
   const auth = getAuth();
@@ -48,7 +46,7 @@ function Navbar() : JSX.Element {
 
   //Profile
   const [showProfileModal, setShowProfileModal] = useState(false);
-  
+
   const showProfileModalClick = (event:any) => {
     setShowProfileModal(true);
   }
@@ -59,13 +57,13 @@ function Navbar() : JSX.Element {
 
   const navbarPublic = <><li><button id="sign-in-btn" className="login-btn" onClick={showModalClick}>Login</button></li>
                       <li className='register-btn'><button id="sign-up-btn" onClick={showModalClick}>New Account</button></li></>
-  
-  const navbarLoggedUser = <><li className="text-black"><a href="/#">{user?.displayName}</a></li>
+
+  const navbarLoggedUser = <><li className="text-black"><Link to='/profile'>{user?.displayName}</Link></li>
                             <li className="text-black"><button onClick={showProfileModalClick}><img src={Avatar} alt="avatar" className='img-avatar w-7 h-7' /></button></li></>
 
   return (
-    <header>
-      <nav >
+      <header>
+      <nav className=' w-full' >
         <div className="nav-container">
       <div className='logo-container'>
           <GiSpotedFlower className='logo' />

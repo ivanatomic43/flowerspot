@@ -27,7 +27,7 @@ const Button = ({
 }: ButtonProps) : JSX.Element => {
 
   const classes = className(rest.className, {
-    'text-white': primary,
+    'text-white bg-[#ECBCB3] rounded': primary,
     'rounded bg-[#ecbcb3]': rounded && disabled,
     'rounded bg-[#e4988d]': rounded && pink,
     'w-full': full,
