@@ -69,7 +69,7 @@ function Profile({onClose, currentUser} : ProfileProps) : JSX.Element {
           <TextField labelName='E-mail address' fieldData={userData?.email}/>
         </div>
         <div className="m-auto">
-          <Button className="mt-3 pt-2 pl-5 pb-2 pr-5 text-xs" pink primary rounded onClick={onLogoutClick}>Logout</Button>
+          <Button className="mt-3 pt-2 pl-5 pb-2 pr-5 text-xs hover:opacity-80" primary onClick={onLogoutClick}>Logout</Button>
         </div>
     </div>
   );

@@ -77,7 +77,7 @@ function SignIn( {handleCloseModal} : SignInProps ) : JSX.Element {
           <Input labelName='Password' inputType='password' id="password" name="password" value={password} onChange={handleOnChange} validationError={formValidation.formErrors.password} />
         </div>
         <div className='p-3 w-full m-auto'>
-          <Button className='p-3' full pink primary rounded disabled={!formValidation.formValid}>Login to your Account</Button>
+          <Button className='p-3' full primary disabled={!formValidation.formValid}>Login to your Account</Button>
         </div>
       </div>
     </Modal>

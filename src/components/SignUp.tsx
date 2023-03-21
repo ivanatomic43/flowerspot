@@ -133,7 +133,7 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
             <Input labelName="Password" inputType="password" id="password" name="password" value={password as string} onChange={handleOnChange} validationError={formValidation.formErrors.password} />
           </div>
           <div className="m-2">
-            <Button className="p-3 w-full" full pink primary rounded disabled={!formValidation.formValid}>Create an Account</Button>
+            <Button className="p-3 w-full" full primary disabled={!formValidation.formValid}>Create an Account</Button>
           </div>
         </div>
       </Modal>

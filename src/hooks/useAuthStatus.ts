@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from "react"
-import {getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 
 const useAuthStatus = () => {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true)
-  const [ currentUser, setCurrentUser] = useState(null)
+  const [ currentUser, setCurrentUser] = useState<User | null>(null)
   const isMounted = useRef(true);
 
   useEffect(() => {
