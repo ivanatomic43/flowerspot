@@ -1,9 +1,3 @@
-import { useEffect, useState } from 'react'
-
-import { useAuthStatus } from '../hooks/useAuthStatus'
-import { doc, DocumentData, getDoc } from 'firebase/firestore'
-import { db } from '../firebase.config';
-
 import Button from '../common/Button'
 import FlowerList from '../components/FlowerList'
 

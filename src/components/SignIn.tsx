@@ -14,8 +14,6 @@ export interface SignInProps {
 
 function SignIn( {handleCloseModal} : SignInProps ) : JSX.Element {
 
-  const [showPassword, setShowPassword] = useState(false);
-
   const [formData, setFormData] = useState({
     email: '',
     password: ''

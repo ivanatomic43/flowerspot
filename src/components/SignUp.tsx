@@ -1,4 +1,4 @@
-import { useState, useId } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 import { setDoc, doc, serverTimestamp, FieldValue } from "firebase/firestore";
@@ -28,8 +28,6 @@ export interface FormProps {
 
 function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
 
-  const [showPassword, setShowPassword] = useState(false);
-  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -102,7 +100,7 @@ function SignUp({handleCloseModal} : SignUpProps) : JSX.Element {
       }
 
       dispatch(addUser(newUser));
-  
+
       navigate('/');
       handleCloseModal();
 
