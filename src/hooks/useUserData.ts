@@ -30,7 +30,7 @@ const useUserData = () => {
 
       getUserData();
     }
-  }, []);
+  });
 
   return { userData }
 }

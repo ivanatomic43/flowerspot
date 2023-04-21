@@ -150,6 +150,10 @@
   display: inline-block;
 }
 
+.personal-image-div {
+  max-height: 260px;
+}
+
 .flower-list-item-content {
   text-align: center;
   margin-top: 200px;
@@ -179,14 +183,6 @@
 .flower-item-btn:hover {
   background-color: rgb(236,188,179);
   opacity: 0.9;
-}
-
-
-.modal-content {
-  
-}
-
-.modal-container {
 }
 
 /* New Modal */
@@ -247,4 +243,9 @@
 .img-avatar {
   border: 0.1rem solid rgba(228,152,141,1);
   border-radius: 5px;
+}
+
+
+.card-custom {
+  max-width: 250px;
 }
