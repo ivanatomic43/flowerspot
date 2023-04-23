@@ -1,12 +1,14 @@
 import flower from '../images/flower.jpg'
 import avatar from '../images/avatar.jpg'
 import { FaCommentDots, FaHeart } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
 
 function PersonalizedFlowerListItem() {
   return (
     <div className='flex flex-col m-6 card-custom'>
       <div className='bg-red-200'>
         <img src={flower} alt="flower" className='personal-image-div w-full' />
+       
       </div>
       <div className='bg-white'>
         <div className='flex flex-row text-center w-full m-5'>
@@ -28,6 +30,10 @@ function PersonalizedFlowerListItem() {
             <p className='text-xs text-[#949EA0] ml-2'>12 Favorites</p>
           </div>
         </div>
+      </div>
+      <div className='flex flex-row text-center bg-white text-[#DF9186] absolute m-5 p-0 w-40 rounded-xl'>
+        <IoLocationSharp className='m-1 text-xl'/>
+        <p className='text-sm mt-1 font-medium'>San Francisco, US</p>
       </div>
     </div>
   )
