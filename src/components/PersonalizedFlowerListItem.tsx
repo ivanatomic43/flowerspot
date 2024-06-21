@@ -7,8 +7,7 @@ function PersonalizedFlowerListItem() {
   return (
     <div className='flex flex-col m-6 card-custom'>
       <div className='bg-red-200'>
-        <img src={flower} alt="flower" className='personal-image-div w-full' />
-       
+        <img src={flower} alt="flower" className='personal-image-div w-full' />    
       </div>
       <div className='bg-white'>
         <div className='flex flex-row text-center w-full m-5'>

@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Playfair Display", sans-serif;
 }
 
 /* Utilities */
@@ -12,106 +13,13 @@
   max-width: 1400px;
 }
 
-/* Navbar */
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  font-family:'Montserrat', sans-serif;
-  max-width: 1400px;
-  overflow: auto;
-  margin: auto;
-}
-
-.logo-container {
-  display: flex;
-  padding: 15px;
-  margin: 20px;
-  align-items: center;
-}
-
-.logo {
-  color: rgba(228, 152, 141, 1);
-  font-size: 20px;
-}
-
-.logo-title {
-  color: rgba(228, 152, 141, 1);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 14px;
-  margin-left: 10px;
-
-}
-
-.nav-container ul {
-  display: flex;
-  margin: 20px;
-}
-
-.nav-container ul li {
-  padding: 18px;
-  margin: 0px 15px;
-}
-
-.nav-container ul li a{
-  text-decoration: none;
-  color:rgb(148, 158, 160)
-}
-
-.nav-container ul li a:hover {
-  text-decoration: none;
-  color: rgb(217, 217, 217)
-}
-
-.nav-container ul li button.login-btn{
-  color: rgba(228, 152, 141, 1);
-}
-
-.nav-container ul li button.login-btn:hover{
-  opacity: 0.6;
-}
-
-.nav-container ul li.register-btn{
-  background-color: #E4988D;
-  border: rgba(228,152,141,1);
-  border-radius: 25px;
-  color: rgb(255, 255, 255);
-}
-
-.nav-container ul li.register-btn:hover{
-  opacity: 0.7;
-}
-
-/* Homepage */
-.homepage {
-  background: url('../images/background.jpg') no-repeat center center/cover;
-  height: 600px;
-}
-
-.homepage-content {
-  text-align: center;
-  padding-top: 170px;
-  color: rgb(255, 255, 255);
-}
-
-.homepage-title {
-  font-size: 60px;
-  font-weight: 600;
-}
-
-.homepage-text {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 500;
-  font-size: 20px;
-}
-
 /* Searchbar */
 .search-container {
   padding: 40px;
   align-items: center;
 }
 
-.search-container .input-div{
+.search-container .input-div {
   display: flex;
   background-color: white;
   border-radius: 5px;
@@ -120,14 +28,14 @@
 
 .search-container input {
   width: 95%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   height: 60px;
   outline: none;
   color: black;
 }
 
 .search-icon {
-  color:rgba(228, 152, 141, 1);
+  color: rgba(228, 152, 141, 1);
   font-size: 20px;
   margin-top: 20px;
 }
@@ -143,7 +51,7 @@
 /* Flower List Item */
 .flower-list-item {
   background: linear-gradient(rgba(245, 246, 252, 0.52), rgba(31, 23, 29, 0.73)),
-  url('../images/listitem.jpg') no-repeat center/cover;
+    url("../images/listitem.jpg") no-repeat center/cover;
   height: 350px;
   width: 280px;
   margin: 20px;
@@ -175,13 +83,13 @@
   font-size: 12px;
   margin-top: 30px;
   padding: 7px 20px;
-  background-color: rgb(1,1,1);
+  background-color: rgb(1, 1, 1);
   opacity: 0.7;
   border-radius: 15px;
 }
 
 .flower-item-btn:hover {
-  background-color: rgb(236,188,179);
+  background-color: rgb(236, 188, 179);
   opacity: 0.9;
 }
 
@@ -217,7 +125,7 @@
   bottom: 0;
   left: 0;
   opacity: 0.5;
-  background-color: rgb(1,1,1)
+  background-color: rgb(1, 1, 1);
 }
 
 .dialog {
@@ -236,15 +144,14 @@
   outline: 0;
   background-clip: padding-box;
   background-color: grey;
-  box-shadow: 0 5px 15px rgba(1,1,1, 0.5);
-  top:20%;
+  box-shadow: 0 5px 15px rgba(1, 1, 1, 0.5);
+  top: 20%;
 }
 
 .img-avatar {
-  border: 0.1rem solid rgba(228,152,141,1);
+  border: 0.1rem solid rgba(228, 152, 141, 1);
   border-radius: 5px;
 }
-
 
 .card-custom {
   max-width: 250px;

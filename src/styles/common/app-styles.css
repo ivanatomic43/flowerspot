@@ -1,0 +1,13 @@
+/* The base text style, which should be applied to all text. */
+
+.text {
+  font-family: "Playfair Display" sans-serif;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.body {
+  font-weight: 500;
+}
