@@ -7,15 +7,15 @@
 
 /* Utilities */
 
-.container {
-  margin: auto;
-  overflow: auto;
-  max-width: 1400px;
-}
+/* .container {
+  /* margin: auto; */
+/* overflow: auto; */
+/* max-width: 1400px; */
+/* } */
 
 /* Searchbar */
 .search-container {
-  padding: 40px;
+  /* padding: 40px; */
   align-items: center;
 }
 

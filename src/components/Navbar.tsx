@@ -62,30 +62,24 @@ function Navbar(): JSX.Element {
 
   const navbarPublic = (
     <>
-      <Text color="app-button">
-        <li>
-          <button
-            id="sign-in-btn"
-            className="login-btn"
-            onClick={showModalClick}
-          >
-            Login
-          </button>
-        </li>
+      <Text color="app-button" type="body.medium" className="m-7">
+        <button id="sign-in-btn" className="login-btn" onClick={showModalClick}>
+          Login
+        </button>
       </Text>
-      <Text color="app-white" className="rounded-3xl">
-        <li className="register-btn">
+      <div className="register-btn m-auto p-4">
+        <Text color="app-white" type="body.medium" className="">
           <button id="sign-up-btn" onClick={showModalClick}>
             New Account
           </button>
-        </li>
-      </Text>
+        </Text>
+      </div>
     </>
   )
 
   const navbarLoggedUser = (
     <>
-      <Text color="app-white">
+      <Text color="app-white" type="body.medium" className="m-7">
         <li>
           <Link to="/profile">{user?.displayName}</Link>
         </li>
@@ -99,50 +93,39 @@ function Navbar(): JSX.Element {
   )
 
   return (
-    <header>
-      <nav className="w-full">
-        <div className="nav-container">
-          <Text color="app-button" className="logo-container">
-            <GiSpotedFlower className="logo app-button" />
-            <a href="/" className="logo-title">
-              FlowerSpot
-            </a>
-          </Text>
+    <nav className="nav-container">
+      <div className="flex m-5">
+        <Text color="app-button" type="title.h3" className="my-2">
+          <GiSpotedFlower />
+        </Text>
+        <Text color="app-button" type="title.h4" className=" mx-3">
+          <a href="/">FlowerSpot</a>
+        </Text>
+      </div>
 
-          <div className="flex">
-            <ul>
-              <li>
-                <Link to="/flowers">
-                  <Text
-                    className="text body"
-                    color="app-white"
-                    type="body.medium"
-                  >
-                    Flowers
-                  </Text>
-                </Link>
-              </li>
-              <li>
-                <Text color="app-white" className="text body">
-                  Latest Sightings
-                </Text>
-              </li>
-              <li>
-                <Text color="app-white" className="text body">
-                  Favorites
-                </Text>
-              </li>
-              {loggedIn ? navbarLoggedUser : navbarPublic}
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <div className="flex mx-5">
+        <Link to="/flowers">
+          <Text color="app-white" type="body.medium" className="m-7">
+            Flowers
+          </Text>
+        </Link>
+
+        <Text color="app-white" type="body.medium" className="m-7">
+          Latest Sightings
+        </Text>
+
+        <Text color="app-white" type="body.medium" className="m-7">
+          Favorites
+        </Text>
+
+        {loggedIn ? navbarLoggedUser : navbarPublic}
+      </div>
       {showSignUpModal && signUpModal}
       {showSignInModal && signInModal}
       {showProfileModal && (
         <Profile onClose={handleProfileClose} currentUser={user} />
       )}
-    </header>
+    </nav>
   )
 }
 

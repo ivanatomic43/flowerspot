@@ -11,3 +11,55 @@
 .body {
   font-weight: 500;
 }
+
+.title-h1 {
+  font-family: "Playfair Display" sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+}
+
+.title-h2 {
+  font-family: "Playfair Display" sans-serif;
+  font-weight: 700;
+  font-size: 54px;
+}
+
+.title-h3 {
+  font-family: "Playfair Display" sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.title-h4 {
+  font-family: "Playfair Display" sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.title-h5 {
+  font-family: "Playfair Display" sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 18;
+}
+
+.body-large {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.body-medium {
+  font-weight: 500;
+  font-size: 16px;
+  /* line-height: 22.5; */
+}
+
+/* The base container style. */
+.full-size {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+}

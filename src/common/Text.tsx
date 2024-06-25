@@ -1,5 +1,6 @@
 import React, { type ReactNode } from "react"
 import Colors from "../styles/common/colors"
+import classNames from "classnames"
 //import "../styles/common/app-styles.css"
 
 /**
@@ -20,13 +21,26 @@ export type TextType =
 interface TextProps {
   children: ReactNode
   color: keyof typeof Colors
-  type?: TextType
+  type: TextType
   className?: string
 }
 
-const Text: React.FC<TextProps> = ({ children, color, className }) => {
+const Text: React.FC<TextProps> = ({ children, color, className, type }) => {
+  const textClass = classNames({
+    "title-h1": type === "title.h1",
+    "title-h2": type === "title.h2",
+    "title-h3": type === "title.h3",
+    "title-h4": type === "title.h4",
+    "title-h5": type === "title.h5",
+    "body-large": type === "body.large",
+    "body-medium": type === "body.medium",
+  })
+
   return (
-    <div className={className} style={{ color: Colors[color] }}>
+    <div
+      className={classNames(className, textClass)}
+      style={{ color: Colors[color] }}
+    >
       {children}
     </div>
   )
