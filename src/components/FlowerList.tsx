@@ -1,10 +1,11 @@
 import FlowerListItem from "./FlowerListItem"
 import PersonalizedFlowerListItem from "./PersonalizedFlowerListItem"
+import "../styles/common/app-styles.css"
 
-function FlowerList() : JSX.Element {
+function FlowerList(): JSX.Element {
   return (
-    <div className='container'>
-       <div className='flower-container bg-gray-200'>
+    <div className="full-size">
+      <div className="flower-container container">
         <PersonalizedFlowerListItem />
         <PersonalizedFlowerListItem />
         <PersonalizedFlowerListItem />

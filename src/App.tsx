@@ -12,7 +12,7 @@ import "../src/styles/homepage.css"
 
 function App(): JSX.Element {
   return (
-    <>
+    <div>
       <Router>
         <Navbar />
         <Routes>
@@ -21,7 +21,7 @@ function App(): JSX.Element {
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </Router>
-    </>
+    </div>
   )
 }
 
