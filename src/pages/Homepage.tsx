@@ -1,28 +1,35 @@
 import FlowerList from "../components/FlowerList"
 import SearchBar from "../components/SearchBar"
-import Text from "../common/Text"
+import { Text, Container, Separator } from "../common"
 
 import "../styles/common/app-styles.css"
-
-// TODO: Refactor homepage & styles related to it
+import backgroundImage from "../images/background.jpg"
 
 export default function Homepage(): JSX.Element {
   return (
     <>
-      <div className="homepage">
-        <div className="container">
-          <div className="homepage-content">
-            <Text color="app-white" type="title.h1">
-              Discover flowers around you
-            </Text>
-
-            <p className="homepage-text">
-              Explore between more than 8.427 sightings
-            </p>
-            <SearchBar />
-          </div>
-        </div>
-      </div>
+      <Container height={600} backgroundImage={backgroundImage}>
+        <Separator height={170} />
+        <Container
+          backgroundColor="rgba(0,0,0 ,0.3)"
+          divStyle={{
+            textAlign: "center",
+            borderRadius: "25px",
+            marginLeft: 180,
+            marginRight: 180,
+          }}
+        >
+          <Text color="app-white" type="title.h1">
+            Discover flowers around you
+          </Text>
+          <Text color="app-white" type="body.medium">
+            Explore between more than 8.427 sightings
+          </Text>
+          <Separator height={50} />
+          <SearchBar />
+          <Separator height={30} />
+        </Container>
+      </Container>
       <FlowerList />
     </>
   )
