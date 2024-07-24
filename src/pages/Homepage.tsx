@@ -11,7 +11,6 @@ export default function Homepage(): JSX.Element {
       <Container height={600} backgroundImage={backgroundImage}>
         <Separator height={170} />
         <Container
-          backgroundColor="rgba(0,0,0 ,0.3)"
           divStyle={{
             textAlign: "center",
             borderRadius: "25px",
@@ -19,10 +18,10 @@ export default function Homepage(): JSX.Element {
             marginRight: 180,
           }}
         >
-          <Text color="app-white" type="title.h1">
+          <Text color="color-5" type="title.h1">
             Discover flowers around you
           </Text>
-          <Text color="app-white" type="body.medium">
+          <Text color="color-5" type="body.medium">
             Explore between more than 8.427 sightings
           </Text>
           <Separator height={50} />
