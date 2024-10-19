@@ -1,0 +1,17 @@
+/* src/Carousel.css */
+.carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.carousel__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+.carousel__img:hover {
+  transform: scale(1.05);
+}

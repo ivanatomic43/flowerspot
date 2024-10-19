@@ -14,8 +14,9 @@ const Colors = {
   "color-8": "#c67d57",
   "color-9": "#c68f83",
   "color-10": "#bb6950",
-  "light-gray": "#d9d9d9",
+  "light-grey": "#d9d9d9",
   "app-white": "#FFFFFF",
+  "text-dark-grey": "#3b3c3d",
 } as const
 
 export default Colors
