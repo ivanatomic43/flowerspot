@@ -18,28 +18,45 @@ export type TextType =
   | "button"
   | "label.small"
 
+export type TextAlign = "right" | "left" | "center"
+
 interface TextProps {
   children: ReactNode
-  color: keyof typeof Colors
-  type: TextType
+  color?: keyof typeof Colors
+  type?: TextType
   className?: string
+
+  alignment?: TextAlign
 }
 
-const Text: React.FC<TextProps> = ({ children, color, className, type }) => {
+const Text: React.FC<TextProps> = ({
+  children,
+  color,
+  className,
+  type,
+  alignment,
+}) => {
   const textClass = classNames({
     "title-h1": type === "title.h1",
     "title-h2": type === "title.h2",
     "title-h3": type === "title.h3",
     "title-h4": type === "title.h4",
     "title-h5": type === "title.h5",
-    "body-large": type === "body.large",
-    "body-medium": type === "body.medium",
+    "text-base": type === "body.large",
+    "text-sm": type === "body.medium",
+    "text-xs": type === "body.small",
+  })
+
+  const textAlignment = classNames({
+    "text-left": alignment === "left",
+    "text-center": alignment === "center",
+    "text-right": alignment === "right",
   })
 
   return (
     <div
-      className={classNames(className, textClass)}
-      style={{ color: Colors[color] }}
+      className={classNames(className, textClass, textAlignment)}
+      style={{ color: Colors[color ?? "app-text"] }}
     >
       {children}
     </div>
